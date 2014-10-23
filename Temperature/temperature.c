@@ -4,8 +4,6 @@
 #define N 20
 #define M 20
 #define TEMP 100
-// Всего цветов в консоли
-#define CON_COLORS 8
 
 void print(double array[][M])
 {
@@ -47,15 +45,10 @@ int main()
 	for(int i = 0; i < M; ++i)
 		prev[0][i] = prev[N-1][i] = next[0][i] = next[N-1][i] = TEMP;
 
-	printf("\x1b[4;30mНагрев пластинки до температуры\x1b[0;1;%dm %d \x1b[0;4;30mпо Цельсию\x1b[0m\n", color, TEMP);
-
-	printf("\x1b[4;30mНачальное распределение температур:\x1b[0m\n");
-	print(prev);
-
 	for (int t = 1; t < time + 1; ++t)
 	{
 		system("clear");
-		printf("\x1b[4;30mРаспределение температур на %d секунде:\x1b[0m\n", t);
+		printf("\x1b[4;30mTemperature distribution at the %d second:\x1b[0m\n", t);
 
 		for(int i = 1; i < N - 1; ++i)
 		{	
@@ -73,11 +66,10 @@ int main()
 			}
 		}
 		print((time % 2 == 0) ? prev : next);
+		//if time is big - change 0.1 to not laggy value
 		system("sleep 0.1");
 	}
 	
-	//printf("\x1b[4;30mРаспределение температур на %d секунде:\x1b[0m\n", time);
-	//print((time % 2 == 0) ? prev : next);
 	return 0;
 }
 
