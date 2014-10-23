@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <time.h>
 #define N 20
 #define M 20
 #define TEMP 100
@@ -8,7 +8,7 @@
 void print(double array[][M])
 {
 	int color = 30; 
-	double colorStep = TEMP / CON_COLORS;
+	
 	printf("\n");
 	for (int i = 1; i < N - 1; i++)
 	{
@@ -48,6 +48,7 @@ int main()
 	for (int t = 1; t < time + 1; ++t)
 	{
 		system("clear");
+		printf("\x1b[4;30mHeating a metal plate to\x1b[0;1;%dm %d \x1b[0;4;30mdegree.\n", color, TEMP);
 		printf("\x1b[4;30mTemperature distribution at the %d second:\x1b[0m\n", t);
 
 		for(int i = 1; i < N - 1; ++i)
@@ -66,8 +67,9 @@ int main()
 			}
 		}
 		print((time % 2 == 0) ? prev : next);
-		//if time is big - change 0.1 to not laggy value
-		system("sleep 0.1");
+		// That means to sleep for 0.1(1e+8 nano) second every time iteration
+		// Actually, not best way, have to improve a delay
+		nanosleep((struct timespec[]){{0, 1e+8}}, NULL);		
 	}
 	
 	return 0;
