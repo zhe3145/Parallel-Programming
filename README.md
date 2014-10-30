@@ -1,5 +1,6 @@
 Parallel Programming
 ===================
 
-Here are programs for my Parallel programming lessons. 
-First one is temperature map change for metal plate.
+#####Here are programs for our Parallel programming lessons.
+
+- `Temperature`: shows a temperature distribution on the metal plate. *Not paralleled yet.*
