@@ -32,7 +32,7 @@ double next[N][M];
 
 int main()
 {
-	int time = 230, color = 0;
+	int time = 2000, color = 0;
 
 	if(TEMP < 11) color = 37;
 	if(TEMP > 10 & TEMP < 21) color = 36;
@@ -69,7 +69,7 @@ int main()
 		print((time % 2 == 0) ? prev : next);
 		// That means to sleep for 0.1(1e+8 nano) second every time iteration
 		// Actually, not best way, have to improve a delay
-		nanosleep((struct timespec[]){{0, 1e+8}}, NULL);		
+		nanosleep((struct timespec[]){{0, 1e+7}}, NULL);		
 	}
 	
 	return 0;
